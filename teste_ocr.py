@@ -17,10 +17,10 @@ import json
 # Caminho do executável do Tesseract
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-# Faz OCR na imagem gerada
+# OCR na imagem gerada
 texto = pytesseract.image_to_string("pagina1.png", lang="eng")  # Usa português
 
-# Extrai informações usando regex
+# Extrai informações  regex
 nome = re.search(r"Nome:\s*(.+)", texto)
 cpf = re.search(r"CPF:\s*([\d\.\-]+)", texto)
 data = re.search(r"Data:\s*(\d{2}/\d{2}/\d{4})", texto)
