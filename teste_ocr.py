@@ -25,13 +25,16 @@ nome = re.search(r"Nome:\s*(.+)", texto)
 cpf = re.search(r"CPF:\s*([\d\.\-]+)", texto)
 data = re.search(r"Data:\s*(\d{2}/\d{2}/\d{4})", texto)
 valor = re.search(r"R\$[\s]*([\d\.,]+)", texto)
+assunto = re.search(r"Assunto:\s*(.+)", texto)
 
 # Monta um dicionário com os dados extraídos
 metadados = {
     "nome": nome.group(1).strip() if nome else None,
     "cpf": cpf.group(1).strip() if cpf else None,
     "data": data.group(1).strip() if data else None,
-    "valor": valor.group(1).strip() if valor else None
+    "valor": valor.group(1).strip() if valor else None,
+    "assunto": assunto.group(1).strip() if assunto else None
+
 }
 
 # Salva os metadados em JSON
